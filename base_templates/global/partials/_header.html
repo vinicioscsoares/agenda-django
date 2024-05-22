@@ -22,12 +22,13 @@
     <div class="search">
         <form action="{% url 'contact:search' %}" value="" method="GET">
             <input
-            type="search" 
+            type="text" 
             class="search-input"
-            placeholder="Procura"
+            placeholder="Procura..."
             id="search"
             name="q"
-            value = {{request.GET.q.strip}} />
+            value = {{request.GET.q.strip}}>
+            <button class='search-button' type="submit"> buscar </button>
 
         </form>
     </div>

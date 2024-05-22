@@ -41,9 +41,14 @@ def search(request):
     )\
     .order_by('-id')
     
+    paginator = Paginator(contacts,10)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+    
     context = {
-        'contact':contacts,
-        'site_title': 'Pesquisa -'
+        'page_obj':page_obj,
+        'site_title': 'Pesquisa -',
+        'search_value': search_value,
     }
     return render(
         request,
@@ -53,7 +58,10 @@ def search(request):
 
 def contact(request, contact_id):
     #single_contact = Contact.objects.filter(pk=contact_id).first()
-    single_contact = get_object_or_404(Contact,pk=contact_id, show=True)
+    try:
+        single_contact = get_object_or_404(Contact,pk=contact_id, show=True)
+    except Contact.DoesNotExist:
+        return redirect('index')
     
     site_title = f'{single_contact.first_name} { single_contact.last_name } -'
     

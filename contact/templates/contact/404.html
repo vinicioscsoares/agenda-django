@@ -1,0 +1,11 @@
+<div class="single-contact">
+    <h1 class="single-contact-name">
+    Contato não encontrado.<br></h1>
+    <h2>Você será redirecionado para a página inicial :) </h2>
+</div>
+
+<script>
+    setTimeout(function() {
+        window.location.href = "{% url 'contact:index' %}";  // Redireciona para a home page
+    }, 5000);  // Tempo em milissegundos (5 segundos)
+</script>

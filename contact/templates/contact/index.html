@@ -56,10 +56,7 @@
         </table>
     </div>
 {% else %}
-<div class="single-contact">
-    <h1 class="single-contact-name">
-    Contato não encontrado. </h1>
-</div>
+{% include 'contact/404.html' %}
 {% endif %}
 {% endblock content %}
 
