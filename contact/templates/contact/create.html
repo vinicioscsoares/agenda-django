@@ -1,0 +1,27 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+<div class="form-wrapper">
+    <h2>criar Contato</h2>
+    <form action=""
+        method='POST'
+        enctype="multi/from-data"
+    >
+    {% csrf_token %}
+    <div class="form-content">
+        <div class="form-group">
+            <label for="id_first_name"> ESPAÇO</label>
+            <input type="text" name="first_name" maxlength="255" id="id_first_name">
+        </div>
+
+        <div class="form-content">
+            <div class="form-grou.p">
+                <button class="btn" type="submit" >Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+{% endblock content %}
+
