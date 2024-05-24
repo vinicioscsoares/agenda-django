@@ -4,6 +4,8 @@ from django.http import Http404
 from django.db.models import Q
 from django.core.paginator import Paginator
 
+
+
 # Create your views here.
 
 def index(request):

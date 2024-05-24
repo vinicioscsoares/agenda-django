@@ -2,24 +2,39 @@
 
 {% block content %}
 <div class="form-wrapper">
-    <h2>criar Contato</h2>
-    <form action=""
+    <h2>Criar contato</h2>
+    <form action="{% url 'contact:create' %}"
         method='POST'
         enctype="multi/from-data"
     >
     {% csrf_token %}
+
+    {% for field in form %}
     <div class="form-content">
         <div class="form-group">
-            <label for="id_first_name"> ESPAÇO</label>
-            <input type="text" name="first_name" maxlength="255" id="id_first_name">
+            <label for="{{field.id_for_label}}"> {{field.label}} </label>
+            {{ field }}
+            {{ field.errors }}
         </div>
-
+        {% endfor %}    
+    </div>
+    
+    {% if form.non_field_errors %}
         <div class="form-content">
-            <div class="form-grou.p">
-                <button class="btn" type="submit" >Enviar</button>
+            <div class="form-group">
+                <div class="message error">
+            {{form.non_field_errors}}
             </div>
         </div>
+    {% endif %}
+
+
+    <div class="class form-content">
+        <div class="class form-group">
+            <button class="class btn" type="send"> Enviar </button>
+        </div>
     </div>
+
 </div>
 </form>
 
