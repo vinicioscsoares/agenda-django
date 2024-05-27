@@ -12,6 +12,9 @@
         <p><b>Descrição:</b> {{contact.description}}</p>
         <p><b>Categoria:</b> {{contact.category.name}}</p>
 
+        <div class="contact-links">
+            <a href="{% url 'contact:update' contact.id %}">update</a>
+        </div>
 
     </div>
     

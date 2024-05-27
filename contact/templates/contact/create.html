@@ -2,8 +2,8 @@
 
 {% block content %}
 <div class="form-wrapper">
-    <h2>Criar contato</h2>
-    <form action="{% url 'contact:create' %}"
+    <h2>{{ page_title }}</h2>
+    <form action="{{ form_action }}"
         method='POST'
         enctype="multi/from-data"
     >
@@ -15,6 +15,11 @@
             <label for="{{field.id_for_label}}"> {{field.label}} </label>
             {{ field }}
             {{ field.errors }}
+            {% if field.help_text %}
+                <p class="help-text">
+                    {{ field.help_text }}
+                </p>
+            {% endif %}
         </div>
         {% endfor %}    
     </div>
